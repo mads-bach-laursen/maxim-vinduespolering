@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 function FacebookIcon({ className }: { className?: string }) {
@@ -28,11 +29,14 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <div className="mb-4 flex items-center gap-2 text-white">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-blue font-bold">
-                M
-              </span>
-              <span className="text-lg font-bold">MAXIM</span>
+            <div className="mb-4">
+              <Image
+                src="/logo-white.svg"
+                alt="Maxim Vinduespolering"
+                width={220}
+                height={28}
+                className="h-7 w-auto"
+              />
             </div>
             <p className="mb-5 text-sm leading-relaxed">
               Din lokale vinduespudser i Midt- og Østjylland. Stabil service – vi

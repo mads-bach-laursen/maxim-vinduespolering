@@ -20,13 +20,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-brand-dark text-white">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-blue font-bold text-white">
-            M
-          </span>
-          <span className="text-base font-bold tracking-tight sm:text-lg">
-            MAXIM <span className="font-normal text-white/70">Vinduespolering</span>
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo-white.svg"
+            alt="Maxim Vinduespolering"
+            width={220}
+            height={28}
+            priority
+            className="h-7 w-auto"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">

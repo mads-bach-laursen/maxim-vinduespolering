@@ -12,7 +12,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ServicesOverview />
+      <ServicesOverview
+        eyebrow="Vores ydelser"
+        heading="Vi sørger for skinnende rene vinduer"
+        intro="To metoder til vinduespudsning – vælg den der passer dit hus og dine vinduer. Vi rådgiver gerne om hvad der passer bedst."
+      />
       <B2bLogos />
       <Testimonials />
       <OwnerStory />

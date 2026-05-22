@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { Send, Lock, Clock } from "lucide-react";
 import { services } from "@/lib/demo-content";
@@ -34,25 +33,10 @@ export function ContactForm({
     <div
       className={
         isFloating
-          ? "relative rounded-2xl bg-white p-6 pt-16 shadow-2xl ring-1 ring-black/5 md:p-8 md:pt-20"
-          : "relative rounded-2xl bg-white p-6 pt-16 shadow-xl ring-1 ring-black/5 md:p-8 md:pt-20"
+          ? "relative rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-black/5 md:p-8"
+          : "relative rounded-2xl bg-white p-6 shadow-xl ring-1 ring-black/5 md:p-8"
       }
     >
-      {/* Thomas-billede der "stikker ud" */}
-      <div className="absolute -top-12 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0">
-        <div className="relative h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-lg">
-          <Image
-            src="https://i.pravatar.cc/200?img=68"
-            alt="Thomas"
-            fill
-            sizes="96px"
-            className="object-cover"
-            unoptimized
-          />
-        </div>
-        <span className="absolute right-1 bottom-1 h-4 w-4 rounded-full border-2 border-white bg-success" />
-      </div>
-
       {submitted ? (
         <div className="py-8 text-center">
           <div className="mb-3 text-2xl">🎉</div>
@@ -65,14 +49,12 @@ export function ContactForm({
         </div>
       ) : (
         <>
-          <div className="mb-5 sm:pl-32">
-            <h3 className="mb-1 text-xl font-bold text-brand-dark md:text-2xl">
+          <div className="mb-5 text-center">
+            <h3 className="text-xl font-bold text-brand-dark md:text-2xl">
               Få et GRATIS tilbud inden for 24 timer
             </h3>
-            <p className="text-sm text-slate-600">Priser fra 90 kr. inkl. moms</p>
-            <p className="mt-3 text-sm italic text-slate-700">
-              &ldquo;Hej, jeg er Thomas – send mig dine oplysninger, så vender
-              jeg tilbage personligt.&rdquo;
+            <p className="mt-1 text-sm text-slate-600">
+              Priser fra 90 kr. inkl. moms
             </p>
           </div>
 

@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Check, Phone, Send } from "lucide-react";
+import { Check, Phone } from "lucide-react";
 import { ownerStory, company } from "@/lib/demo-content";
 
 export function OwnerStory() {
@@ -29,19 +28,13 @@ export function OwnerStory() {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8">
             <a
               href={`tel:${company.phoneTel}`}
-              className="flex items-center justify-center gap-2 rounded-full bg-brand-dark px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-darker"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-dark px-7 py-4 text-sm font-semibold text-white transition hover:bg-brand-darker"
             >
               <Phone className="h-4 w-4" /> Ring {company.phone}
             </a>
-            <Link
-              href="#kontakt"
-              className="flex items-center justify-center gap-2 rounded-full bg-cta px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-cta-dark"
-            >
-              <Send className="h-4 w-4" /> Send tilbudsforespørgsel
-            </Link>
           </div>
         </div>
 
