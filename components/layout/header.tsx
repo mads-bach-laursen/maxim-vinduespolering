@@ -1,0 +1,110 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { Menu, X, Phone } from "lucide-react";
+import { company } from "@/lib/demo-content";
+
+const navLinks = [
+  { href: "/#services", label: "Services" },
+  { href: "/#omraader", label: "Områder" },
+  { href: "/#mod-thomas", label: "Mød Thomas" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#kontakt", label: "Kontakt" },
+];
+
+export function Header() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-40 bg-brand-dark text-white">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center gap-2">
+          <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-blue font-bold text-white">
+            M
+          </span>
+          <span className="text-base font-bold tracking-tight sm:text-lg">
+            MAXIM <span className="font-normal text-white/70">Vinduespolering</span>
+          </span>
+        </Link>
+
+        <nav className="hidden items-center gap-7 lg:flex">
+          {navLinks.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="text-sm font-medium text-white/80 transition hover:text-white"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-4 md:flex">
+          <div className="text-right">
+            <div className="text-[11px] uppercase tracking-wide text-white/60">
+              Ring 8.00-17.00
+            </div>
+            <a
+              href={`tel:${company.phoneTel}`}
+              className="text-base font-semibold text-white"
+            >
+              {company.phone}
+            </a>
+          </div>
+
+          <div className="relative">
+            <Image
+              src="https://i.pravatar.cc/120?img=68"
+              alt="Thomas"
+              width={40}
+              height={40}
+              className="h-10 w-10 rounded-full border-2 border-white/20 object-cover"
+              unoptimized
+            />
+            <span className="absolute right-0 bottom-0 h-3 w-3 rounded-full border-2 border-brand-dark bg-success" />
+          </div>
+
+          <Link
+            href="/#kontakt"
+            className="rounded-full bg-cta px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-cta-dark"
+          >
+            Få en pris
+          </Link>
+        </div>
+
+        <button
+          onClick={() => setOpen(!open)}
+          className="lg:hidden"
+          aria-label="Menu"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+
+      {open && (
+        <div className="border-t border-white/10 lg:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
+            {navLinks.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="rounded-md px-3 py-3 text-sm font-medium text-white/80 hover:bg-white/5 hover:text-white"
+              >
+                {l.label}
+              </Link>
+            ))}
+            <a
+              href={`tel:${company.phoneTel}`}
+              className="mt-2 flex items-center gap-2 rounded-md bg-white/10 px-3 py-3 text-sm font-semibold"
+            >
+              <Phone className="h-4 w-4" /> {company.phone}
+            </a>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
