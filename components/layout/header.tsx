@@ -36,7 +36,7 @@ export function Header() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-white/80 transition hover:text-white"
+              className="text-sm font-medium text-brand-blue transition hover:text-white"
             >
               {l.label}
             </Link>
@@ -70,7 +70,7 @@ export function Header() {
 
           <Link
             href="/#kontakt"
-            className="rounded-full bg-cta px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-cta-dark"
+            className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-brand-blue transition hover:bg-brand-blue hover:text-white"
           >
             Få en pris
           </Link>
