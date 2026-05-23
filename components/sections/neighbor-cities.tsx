@@ -13,7 +13,7 @@ export function NeighborCities({ slugs }: Props) {
 
   return (
     <section className="bg-neutral-bg py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-page px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-2xl">
           <div className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-blue">
             Nabobyer

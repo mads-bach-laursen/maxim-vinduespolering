@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
+import { ServicesStrip } from "@/components/sections/services-strip";
 import { ServicesOverview } from "@/components/sections/services-overview";
 import { WhyCity } from "@/components/sections/why-city";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -29,6 +30,8 @@ export default function SilkeborgPage() {
         postal={silkeborg.postal}
         cityContext={silkeborg.name}
       />
+
+      <ServicesStrip />
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">

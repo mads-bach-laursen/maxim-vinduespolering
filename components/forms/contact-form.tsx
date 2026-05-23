@@ -33,7 +33,7 @@ export function ContactForm({
     <div
       className={
         isFloating
-          ? "relative rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-black/5 md:p-8"
+          ? "relative rounded-2xl bg-white p-6 pt-16 shadow-2xl ring-1 ring-black/5 md:p-8 md:pt-20 lg:pt-24"
           : "relative rounded-2xl bg-white p-6 shadow-xl ring-1 ring-black/5 md:p-8"
       }
     >
@@ -50,7 +50,7 @@ export function ContactForm({
       ) : (
         <>
           <div className="mb-5 text-center">
-            <h3 className="text-xl font-bold text-brand-dark md:text-2xl">
+            <h3 className="text-balance text-xl font-bold text-brand-dark md:text-2xl">
               Få et GRATIS tilbud inden for 24 timer
             </h3>
             <p className="mt-1 text-sm text-slate-600">
@@ -123,7 +123,7 @@ export function ContactForm({
             <button
               type="submit"
               disabled={submitting}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-cta px-6 py-4 text-base font-semibold text-white shadow-lg shadow-orange-500/20 transition hover:bg-cta-dark disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-cta px-6 py-4 text-base font-semibold text-white shadow-lg shadow-green-600/20 transition hover:bg-cta-dark disabled:opacity-60"
             >
               {submitting ? (
                 "Sender..."

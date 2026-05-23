@@ -39,9 +39,9 @@ export function ServicesOverview({
 
   return (
     <section id="services" className="bg-white py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-page px-4 sm:px-6 lg:px-8">
         {(eyebrow || heading || intro) && (
-          <div className="mb-12 max-w-2xl">
+          <div className="mb-12 max-w-2xl lg:pr-[500px]">
             {eyebrow && (
               <div className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-blue">
                 {eyebrow}
@@ -58,8 +58,9 @@ export function ServicesOverview({
           </div>
         )}
 
-        {/* To store hero-services */}
-        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+        {/* To store hero-services – får højre-padding så de holder sig væk fra
+            den floating tilbudsformular der overlapper fra hero-sektionen */}
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8 lg:pr-[500px]">
           {heroServices.map((s, i) => (
             <Link
               key={i}

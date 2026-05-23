@@ -4,14 +4,16 @@
 @theme {
   --color-brand-dark: #333333;
   --color-brand-darker: #1a1a1a;
-  --color-brand-blue: #00aeef;
-  --color-brand-blue-dark: #0288d1;
+  --color-brand-blue: #001d73;
+  --color-brand-blue-dark: #00134d;
   --color-brand-blue-light: #e1f5fe;
-  --color-cta: #f59e0b;
-  --color-cta-dark: #d97706;
+  --color-cta: #34ad38;
+  --color-cta-dark: #258828;
   --color-neutral-bg: #f8fafc;
   --color-ink: #0f172a;
   --color-success: #22c55e;
+
+  --container-page: 1500px;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -33,13 +35,13 @@
   --secondary-foreground: #0f172a;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
-  --accent: #00aeef;
+  --accent: #001d73;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #00aeef;
+  --ring: #001d73;
 }
 
 @theme inline {
@@ -91,4 +93,19 @@ body {
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+.map-dot {
+  opacity: 0;
+  transform: scale(0.2);
+  transform-origin: center;
+  transform-box: fill-box;
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.map-dots-visible .map-dot {
+  opacity: 1;
+  transform: scale(1);
 }

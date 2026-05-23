@@ -3,7 +3,7 @@ import { b2bClients } from "@/lib/demo-content";
 export function B2bLogos() {
   return (
     <section className="border-y border-slate-100 bg-white py-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-page px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-center lg:gap-12">
           <p className="text-base font-medium text-slate-600 lg:text-right">
             Virksomheder der stoler på{" "}

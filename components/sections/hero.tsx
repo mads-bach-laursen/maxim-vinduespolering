@@ -54,73 +54,83 @@ function GoogleReviewsPill() {
 }
 
 export function Hero({
-  title = "Vinduespudser og vinduesvask i Midt- og Østjylland",
-  subtitle = "Få et GRATIS uforpligtende tilbud. Priser fra 90 kr. inkl. moms. Vi kommer når vi siger det.",
+  title = "Professionel vinduespolering i Midt- og Østjylland",
+  subtitle = "Vi tror på godt håndværk, klare aftaler og stabil service. Hos os får du en vinduespudser, du kan regne med – hver gang. Vi tilbyder både traditionel vinduespudsning og moderne rentvandsanlæg, og hjælper private og virksomheder i hele Midt- og Østjylland med flotte, rene vinduer uden bøvl.",
   postal,
   cityContext,
 }: Props) {
-  return (
-    <section id="kontakt" className="relative overflow-hidden bg-brand-dark">
-      <Image
-        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2000&q=80"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-darker/85 via-brand-darker/55 to-transparent" />
-
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-4 pt-16 pb-24 sm:px-6 md:pt-20 md:pb-28 lg:grid-cols-[1.15fr_1fr] lg:gap-8 lg:pt-28 lg:pb-32 lg:px-8">
-        <div className="text-white">
-          <h1 className="text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
-            {title}
-          </h1>
-          <p className="mt-5 max-w-xl text-lg text-white/90 md:text-xl">
-            {subtitle}
-          </p>
-
-          {/* Trust bar */}
-          <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-6">
-            <GoogleReviewsPill />
-            <div className="grid grid-cols-2 gap-x-10 gap-y-4 sm:grid-cols-4">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="text-2xl font-bold text-white md:text-3xl">
-                    {s.value}
-                  </div>
-                  <div className="text-[11px] leading-tight text-white/75">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Floating form + van image */}
-        <div className="relative lg:pl-6">
-          {/* Thomas-billede stikker ud øverst-venstre (placeholder indtil rigtigt van-foto) */}
-          <div className="pointer-events-none absolute -top-10 -left-4 z-10 hidden sm:block md:-top-14 md:-left-8 lg:-top-16 lg:-left-12">
-            <div className="relative h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-2xl md:h-32 md:w-32 lg:h-36 lg:w-36">
-              <Image
-                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=400&q=85"
-                alt="Thomas, ejer af Maxim"
-                fill
-                sizes="144px"
-                className="object-cover"
-                unoptimized
-              />
-              <span className="absolute right-2 bottom-2 h-4 w-4 rounded-full border-2 border-white bg-success" />
-            </div>
-          </div>
-          <ContactForm
-            variant="floating"
-            defaultPostal={postal}
-            cityContext={cityContext}
+  const formBlock = (
+    <div className="relative">
+      {/* Thomas-billede centreret øverst på formularen */}
+      <div className="pointer-events-none absolute left-1/2 z-10 -translate-x-1/2 -top-10 sm:-top-12 md:-top-14 lg:-top-16">
+        <div className="relative h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-2xl sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-36 lg:w-36">
+          <Image
+            src="/thomas.jpg"
+            alt="Thomas, ejer af Maxim"
+            fill
+            sizes="144px"
+            className="object-cover"
           />
+          <span className="absolute right-2 bottom-2 h-4 w-4 rounded-full border-2 border-white bg-success" />
         </div>
       </div>
-    </section>
+      <ContactForm
+        variant="floating"
+        defaultPostal={postal}
+        cityContext={cityContext}
+      />
+    </div>
+  );
+
+  return (
+    <div className="relative">
+      <section id="kontakt" className="relative bg-brand-dark">
+        <Image
+          src="/hero.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#062a3d]/75 via-[#062a3d]/40 to-transparent" />
+
+        <div className="relative mx-auto max-w-page px-4 pt-16 pb-[146px] sm:px-6 md:pt-20 md:pb-[162px] lg:pt-28 lg:pb-[178px] lg:pr-[500px] lg:px-8">
+          <div className="text-white">
+            <h1 className="text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
+              {title}
+            </h1>
+            <p className="mt-5 max-w-xl text-lg font-medium text-white/90 md:text-xl">
+              {subtitle}
+            </p>
+
+            {/* Trust bar */}
+            <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-6">
+              <GoogleReviewsPill />
+              <div className="grid grid-cols-2 gap-x-10 gap-y-4 sm:grid-cols-4">
+                {stats.map((s) => (
+                  <div key={s.label}>
+                    <div className="text-2xl font-bold text-white md:text-3xl">
+                      {s.value}
+                    </div>
+                    <div className="text-sm font-semibold leading-tight text-white/75">
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Form-overlay: spænder over hero + ind i næste sektion på desktop.
+          På mobil: ligger som almindeligt flow lige under hero. */}
+      <div className="relative -mt-12 px-4 sm:-mt-16 sm:px-6 lg:absolute lg:inset-x-0 lg:top-28 lg:mt-0 lg:px-0 lg:pointer-events-none">
+        <div className="mx-auto max-w-page lg:flex lg:justify-end lg:px-8">
+          <div className="lg:w-[440px] lg:pointer-events-auto">{formBlock}</div>
+        </div>
+      </div>
+    </div>
   );
 }

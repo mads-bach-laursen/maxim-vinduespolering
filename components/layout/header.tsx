@@ -18,8 +18,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-brand-dark text-white">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-40 bg-brand-blue text-white">
+      <div className="mx-auto flex h-16 max-w-page items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center">
           <Image
             src="/logo-white.svg"
@@ -36,7 +36,7 @@ export function Header() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-brand-blue transition hover:text-white"
+              className="text-sm font-medium text-white/85 transition hover:text-white"
             >
               {l.label}
             </Link>
@@ -58,19 +58,18 @@ export function Header() {
 
           <div className="relative">
             <Image
-              src="https://i.pravatar.cc/120?img=68"
-              alt="Thomas"
-              width={40}
-              height={40}
-              className="h-10 w-10 rounded-full border-2 border-white/20 object-cover"
-              unoptimized
+              src="/thomas.jpg"
+              alt="Thomas, ejer af Maxim"
+              width={80}
+              height={80}
+              className="h-10 w-10 rounded-full border-2 border-white/30 object-cover"
             />
-            <span className="absolute right-0 bottom-0 h-3 w-3 rounded-full border-2 border-brand-dark bg-success" />
+            <span className="absolute right-0 bottom-0 h-3 w-3 rounded-full border-2 border-brand-blue bg-success" />
           </div>
 
           <Link
             href="/#kontakt"
-            className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-brand-blue transition hover:bg-brand-blue hover:text-white"
+            className="rounded-full bg-cta px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-cta-dark"
           >
             Få en pris
           </Link>
@@ -87,7 +86,7 @@ export function Header() {
 
       {open && (
         <div className="border-t border-white/10 lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
+          <nav className="mx-auto flex max-w-page flex-col gap-1 px-4 py-4 sm:px-6">
             {navLinks.map((l) => (
               <Link
                 key={l.href}

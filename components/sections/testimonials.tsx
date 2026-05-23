@@ -26,7 +26,7 @@ export function Testimonials({
 
   return (
     <section className="bg-white py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-page px-4 sm:px-6 lg:px-8">
         <div className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div className="max-w-xl">
             <div className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-blue">
