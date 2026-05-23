@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { cities } from "@/lib/demo-content";
 
@@ -33,15 +34,23 @@ export function NeighborCities({ slugs }: Props) {
             <Link
               key={c.slug}
               href={`/byer/${c.slug}`}
-              className="group flex items-center justify-between rounded-2xl bg-white p-5 ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-lg"
+              className="group relative flex items-center justify-between overflow-hidden rounded-2xl bg-white p-5 ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <div>
+              <div className="relative z-10">
                 <div className="text-base font-bold text-brand-dark">
                   {c.name}
                 </div>
                 <div className="text-xs text-slate-500">{c.postal}</div>
               </div>
-              <ArrowRight className="h-4 w-4 text-brand-blue transition group-hover:translate-x-1" />
+              <ArrowRight className="relative z-10 h-4 w-4 text-brand-blue transition group-hover:translate-x-1" />
+              <Image
+                src="/byskilt.png"
+                alt=""
+                width={200}
+                height={80}
+                unoptimized
+                className="pointer-events-none absolute right-0 bottom-0 h-12 w-auto opacity-15 transition group-hover:opacity-25"
+              />
             </Link>
           ))}
         </div>
