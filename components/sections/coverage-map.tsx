@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { cities } from "@/lib/demo-content";
+import { DENMARK_PATH, mappedCities, type CityDot } from "@/lib/map-data";
 
 function ByskiltIcon({ className }: { className?: string }) {
   return (
@@ -24,37 +25,6 @@ function ByskiltIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-
-const DENMARK_PATH = `M67.187,215.39l7.697-9.559l-2.979-14.645l5.546-9.099l1.379-7.629l-3.003-6.464l5.484,2.758l8.762-3.003l5.362-14.338 l6.587-2.758l-1.501-19.179l24.234-6.158l9.253-19.394l-8.149-7.016l-10.784,1.961l-8.762-3.616l-4.841-28.401l11.704-27.359 l-0.031-16.36l-5.393-11.029l4.719-10.693L109.344,2l-11.948,9.773l-10.202,0.981l-17.157,28.89l-15.289,8.487l-11.182-1.623 l-8.824,4.626l-8.854-0.184l-14.4,21.569l4.535,13.449l7.475,7.261l10.325-8.67l5.239-8.762l1.379-12.408L28.583,70.72l1.409-5.085 l19.486-7.047l6.863,2.88l18.383-6.372l-3.921,6.801l-6.741-2.206L51.777,70.475l0.981,9.069l6.464,9.406l-8.027,2.574 l-1.992-13.297l-10.356,2.942l-9.682,23.744l-10.355-8.67l-5.669,0.061L8.21,91.186l-3.708,7.261l-1.195,35.57l8.058,3.707 l4.719,12.347l-9.896,10.202L2.143,179.79l4.627,3.155l4.534-4.687l7.017,9.927l8.211,2.205l1.807,44.608l7.752-0.766l17.586,4.565 l6.556,3.86l10.111-6.342l10.232-1.563l-1.163-6.863L67.187,215.39z M122.028,240.115l5.331,5.729l10.128-28.168l-4.351,1.413 L122.028,240.115z M81.464,233.128l8.946,4.627l2.635-8.303l-11.122-9.835L81.464,233.128z M128.707,195.874l-4.78-6.617 l-9.19-1.685l-0.797-6.741l-7.139-5.177l-24.817,2.74l-3.493,5.637l7.447,13.468l0.061,7.843l10.877,5.606l9.59,9.712l10.722,2.574 l9.161-3.677L128.707,195.874z M136.581,36.375l5.422-3.003l-7.2,0.643l-7.598,4.811l7.935,4.963L136.581,36.375z M193.474,223.632 l-5.361-11.826l6.097-7.445l9.743-2.788l2.084-7.812l-10.631-6.587l5.607-14.247l4.932-0.337l5.576-16.115l-4.687-9.957 l4.534-10.355l-17.708-6.128l-16.912,13.604l7.538,2.266l-6.802,11.551l-0.429,6.005l-10.569-17.004l-17.402,18.291l-6.067-0.429 l-2.205,4.994l7.292,21.292l-2.145,8.027l4.963,9.62l7.568-2.021l10.784,3.002l11.673,16.452l-5.671,8.259l-14.605,2.832 l-9.321-8.272l-7.935,1.103l-2.297,15.196l20.435,10.233l14.951-2.053l4.414,5.018l14.152-21.593l-10.477-8.609L193.474,223.632z M202.146,219.985l-0.674,6.832l8.946-0.214l1.439-4.534L202.146,219.985z`;
-
-// Bymarkører med koordinater (placeret via mark-mode)
-type CityDot = { slug: string; name: string; x: number; y: number };
-const mappedCities: CityDot[] = [
-  { slug: "silkeborg", name: "Silkeborg", x: 72.5, y: 130 },
-  { slug: "skanderborg", name: "Skanderborg", x: 87.8, y: 144 },
-  { slug: "hammel", name: "Hammel", x: 89.2, y: 131.7 },
-  { slug: "grenaa", name: "Grenaa", x: 126.7, y: 115.7 },
-  { slug: "ebeltoft", name: "Ebeltoft", x: 117.5, y: 124.9 },
-  { slug: "ronde", name: "Rønde", x: 106.9, y: 125.9 },
-  { slug: "hornslet", name: "Hornslet", x: 100.8, y: 126.6 },
-  { slug: "hadsten", name: "Hadsten", x: 91.9, y: 119.5 },
-  { slug: "hinnerup", name: "Hinnerup", x: 94, y: 125.9 },
-  { slug: "bjerringbro", name: "Bjerringbro", x: 76.6, y: 115.4 },
-  { slug: "ry", name: "Ry", x: 81.4, y: 136.2 },
-  { slug: "lystrup", name: "Lystrup", x: 98.4, y: 120.8 },
-  { slug: "hjortshoj", name: "Hjortshøj", x: 97.4, y: 123.2 },
-  { slug: "skodstrup", name: "Skødstrup", x: 87.2, y: 124.2 },
-  { slug: "langaa", name: "Langå", x: 85.1, y: 116.7 },
-  { slug: "auning", name: "Auning", x: 105.9, y: 110.3 },
-  { slug: "galten", name: "Galten", x: 81.4, y: 126.3 },
-  { slug: "ikast", name: "Ikast", x: 53.8, y: 148.8 },
-  { slug: "them", name: "Them", x: 70.1, y: 147.4 },
-  { slug: "orsted", name: "Ørsted", x: 99.8, y: 100.7 },
-  { slug: "orum-djurs", name: "Ørum Djurs", x: 116.8, y: 107.2 },
-  { slug: "flemming", name: "Flemming", x: 69.1, y: 160 },
-  { slug: "kolind", name: "Kolind", x: 114.7, y: 117.1 },
-  { slug: "uldum", name: "Uldum", x: 73.9, y: 153.9 },
-];
 
 export function CoverageMap() {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -148,7 +118,7 @@ export function CoverageMap() {
       <div className="mx-auto max-w-page px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           {/* Map */}
-          <div className="order-2 lg:order-1">
+          <div className="order-1">
             <div className="relative p-6 md:p-8">
               {markMode && selectedSlug && (
                 <div className="absolute top-0 left-0 right-0 z-20 -mt-2 mx-auto w-fit rounded-full bg-brand-blue px-4 py-1.5 text-sm font-semibold text-white shadow-lg">
@@ -163,7 +133,7 @@ export function CoverageMap() {
                 ref={svgRef}
                 viewBox="0 0 214 260"
                 onClick={handleSvgClick}
-                className={`block h-auto w-full ${visible ? "map-dots-visible" : ""} ${markMode && selectedSlug ? "cursor-crosshair" : ""}`}
+                className={`block h-auto w-full origin-center scale-[1.3] my-10 lg:scale-100 lg:my-0 ${visible ? "map-dots-visible" : ""} ${markMode && selectedSlug ? "cursor-crosshair" : ""}`}
                 aria-label="Kort over Danmark – serviceområde i Midt- og Østjylland"
               >
                 <path d={DENMARK_PATH} fill="#001d73" />

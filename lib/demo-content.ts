@@ -151,10 +151,8 @@ export const ownerStory = {
     "+10 års erfaring i lokalområdet",
     "Tilfredshedsgaranti på alle opgaver",
   ],
-  image:
-    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80",
-  avatar:
-    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+  image: "/thomas.jpg",
+  avatar: "/thomas.jpg",
 };
 
 export const b2bClients = [

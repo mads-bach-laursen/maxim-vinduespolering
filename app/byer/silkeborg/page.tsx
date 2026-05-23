@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
+import { CityLocationMap } from "@/components/sections/city-location-map";
 import { ServicesStrip } from "@/components/sections/services-strip";
 import { ServicesOverview } from "@/components/sections/services-overview";
 import { WhyCity } from "@/components/sections/why-city";
@@ -29,6 +30,12 @@ export default function SilkeborgPage() {
         subtitle={silkeborg.heroSubtitle}
         postal={silkeborg.postal}
         cityContext={silkeborg.name}
+      />
+
+      <CityLocationMap
+        slug={silkeborg.slug}
+        cityName={silkeborg.name}
+        postal={silkeborg.postal}
       />
 
       <ServicesStrip />

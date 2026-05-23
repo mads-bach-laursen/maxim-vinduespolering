@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Clock } from "lucide-react";
 import { cities } from "@/lib/demo-content";
+import { CityLocationMap } from "@/components/sections/city-location-map";
+import { findCityCoords } from "@/lib/map-data";
 
 export function generateStaticParams() {
   return cities.filter((c) => c.slug !== "silkeborg").map((c) => ({ by: c.slug }));
@@ -16,8 +18,18 @@ export default async function CityStubPage({
   const city = cities.find((c) => c.slug === by);
   if (!city) notFound();
 
+  const hasMap = !!findCityCoords(city.slug);
+
   return (
-    <section className="min-h-[70vh] bg-neutral-bg py-24">
+    <>
+      {hasMap && (
+        <CityLocationMap
+          slug={city.slug}
+          cityName={city.name}
+          postal={city.postal}
+        />
+      )}
+      <section className="min-h-[50vh] bg-neutral-bg py-24">
       <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-brand-blue/15 px-4 py-1.5 text-sm font-medium text-brand-blue">
           <Clock className="h-4 w-4" /> Snart klar
@@ -49,5 +61,6 @@ export default async function CityStubPage({
         </p>
       </div>
     </section>
+    </>
   );
 }

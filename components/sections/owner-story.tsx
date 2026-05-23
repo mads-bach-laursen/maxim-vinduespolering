@@ -31,7 +31,7 @@ export function OwnerStory() {
           <div className="mt-8">
             <a
               href={`tel:${company.phoneTel}`}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-dark px-7 py-4 text-sm font-semibold text-white transition hover:bg-brand-darker"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-cta px-7 py-4 text-sm font-semibold text-white transition hover:bg-cta-dark"
             >
               <Phone className="h-4 w-4" /> Ring {company.phone}
             </a>

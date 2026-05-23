@@ -63,15 +63,17 @@ export function Hero({
     <div className="relative">
       {/* Thomas-billede centreret øverst på formularen */}
       <div className="pointer-events-none absolute left-1/2 z-10 -translate-x-1/2 -top-10 sm:-top-12 md:-top-14 lg:-top-16">
-        <div className="relative h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-2xl sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-36 lg:w-36">
-          <Image
-            src="/thomas.jpg"
-            alt="Thomas, ejer af Maxim"
-            fill
-            sizes="144px"
-            className="object-cover"
-          />
-          <span className="absolute right-2 bottom-2 h-4 w-4 rounded-full border-2 border-white bg-success" />
+        <div className="relative h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-36 lg:w-36">
+          <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-white shadow-2xl">
+            <Image
+              src="/thomas.jpg"
+              alt="Thomas, ejer af Maxim"
+              fill
+              sizes="144px"
+              className="object-cover"
+            />
+          </div>
+          <span className="online-dot absolute right-2 bottom-2 z-20 h-4 w-4 rounded-full border-2 border-white bg-success" />
         </div>
       </div>
       <ContactForm
